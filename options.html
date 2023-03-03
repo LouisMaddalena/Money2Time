@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Salary Calculator</title>
+    <script src="salary.js"></script>
+  </head>
+  <body>
+    <h1>Salary Calculator</h1>
+    <label for="salary">Salary:</label>
+    <input type="number" id="salary"><br><br>
+    <label for="pre-or-post-tax">Pre-tax or Post-tax:</label>
+    <select id="pre-or-post-tax">
+      <option value="pre">Pre-tax</option>
+      <option value="post">Post-tax</option>
+    </select><br><br>
+    <label for="tax-rate">Tax Rate (%):</label>
+    <input type="number" id="tax-rate"><br><br>
+    <button onclick="calculateHourlyRate()">Calculate Hourly Rate</button><br><br>
+    <label for="hourly-rate-input">Hourly Rate:</label>
+    <input type="number" id="hourly-rate-input"><br><br>
+    <button id="save-button">Save Hourly Rate</button><br><br>
+    <p id="hourly-rate"></p>
+  </body>
+</html>
