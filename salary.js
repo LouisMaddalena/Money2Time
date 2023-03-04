@@ -1,6 +1,6 @@
-
-
-let savedHourlyRate = null;
+document
+  .getElementById("calculateHourlyRate")
+  .addEventListener("click", calculateHourlyRate);
 
 function calculateHourlyRate() {
   const salary = document.getElementById("salary").value;
@@ -11,19 +11,12 @@ function calculateHourlyRate() {
   if (preOrPostTax === "pre") {
     hourlyRate = salary / 2080; // Assumes 2080 work hours in a year
   } else {
-    const postTaxSalary = salary * (1 - (taxRate / 100));
+    const postTaxSalary = salary * (1 - taxRate / 100);
     hourlyRate = postTaxSalary / 2080;
   }
 
-  savedHourlyRate = hourlyRate;
-
-  chrome.storage.local.set({hourlyRate: savedHourlyRate}, function() {
-    if(chrome.runtime.lastError) {
-      console.error(
-        "Error setting hourlyRate to " + savedHourlyRate +
-        ": " + chrome.runtime.lastError.message
-      );
-    }
+  chrome.storage.local.set({ hourlyRate: hourlyRate }).then(() => {
+    console.log("Value is set to " + hourlyRate);
   });
 
   document.getElementById("hourly-rate-input").value = hourlyRate.toFixed(2);
