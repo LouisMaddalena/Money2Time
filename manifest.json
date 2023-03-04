@@ -18,6 +18,13 @@
       "matches": ["https://*/*"],
       "js": ["content.js"]
     }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "options.html" ],
+      "matches": [ "http://*/*", "https://*/*" ]
+    }
   ]
+
 
 }
