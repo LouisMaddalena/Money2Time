@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Money2Time",
-  "version": "1.0",
-  "description": "Convert the prices on Amazon to time needed to work",
+  "version": "1.0.0.1",
+  "description": "Time is money, and money is time. Using this extension allows you to make more informed decisions about your purchases by displaying how many hours you would need to work to make the purchase.",
   "options_page": "options.html",
   "content_security_policy": {
 },
