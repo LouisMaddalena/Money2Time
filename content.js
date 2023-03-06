@@ -19,11 +19,25 @@ chrome.storage.local.get(["hourlyRate"], function(result) {
 
     document.querySelectorAll(".a-price").forEach(function (element) {
       var price = parseFloat(element.innerText.replace("$", ""));
-      var hours = Math.round((price / result.hourlyRate) * 100) / 100;
+      var hours = Math.floor(price / result.hourlyRate); // get the number of whole hours
+      var minutes = Math.round((price / result.hourlyRate - hours) * 60); // get the number of minutes
+
       if (isNaN(hours)) {
         element.innerText = "$" + price;
       } else {
-        element.innerText = "$" + price + "\n" + hours + " hours of work";
+        if (hours > 0 && minutes > 0 ){
+          element.innerText = "$" + price + "\n" + hours + " hours" + " and " + minutes + " minutes of work";
+        }
+        if (hours > 1 && minutes == 0){
+          element.innerText = "$" + price + "\n" + hours + " hours of work";
+        }
+        if (hours == 1 && minutes == 0){
+          element.innerText = "$" + price + "\n" + hours + " hour of work";
+        }
+        if (hours == 0 && minutes > 0){
+          element.innerText = "$" + price + "\n" + minutes + " minutes of work"
+        }
+
       }
     });
   }
