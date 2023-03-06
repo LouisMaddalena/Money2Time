@@ -21,6 +21,7 @@ function calculateHourlyRate() {
 
   chrome.storage.local.set({ hourlyRate: hourlyRate }).then(() => {
     console.log("Value is set to " + hourlyRate);
+    alert("Hourly rate set to  " + hourlyRate.toFixed(2));
   });
 
   document.getElementById("hourly-rate-input").value = hourlyRate.toFixed(2);
@@ -30,5 +31,6 @@ function save (){
   const hourlyRate = document.getElementById("hourly-rate-input").value;
   chrome.storage.local.set({ hourlyRate: hourlyRate }).then(() => {
     console.log("Value is set to " + hourlyRate);
+    alert("Hourly rate set to  " + hourlyRate);
   });
 }
